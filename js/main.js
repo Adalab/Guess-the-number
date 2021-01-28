@@ -46,8 +46,11 @@ function updateFeedback() {
     }
 }
 
-function updateCounter() {
-    
+const updateCounter = () => {
+    const counterMessage = document.querySelector('.js-counter');
+    let value = parseInt(counterMessage.innerHTML);
+    value++;   
+    counterMessage.innerHTML = value;
 }
 
 buttonElement.addEventListener('click', handleButtonElement);
