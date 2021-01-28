@@ -12,7 +12,6 @@ const getRandomNumber = (max) => {
 }
 
 const randomNumber = getRandomNumber(100)
-console.log(randomNumber);
 
 function handleButtonElement(ev) {
     ev.preventDefault()
@@ -22,7 +21,6 @@ function handleButtonElement(ev) {
 
 function updateFeedback() {
     const inputValue = parseInt(inputElement.value);
-    console.log(inputValue);
     if (inputValue === randomNumber) {
         cluesElement.innerHTML = "Has ganado campeona!!!";
     }
