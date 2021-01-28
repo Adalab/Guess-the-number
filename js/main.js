@@ -12,7 +12,6 @@ const getRandomNumber = (max) => {
 }
 
 const randomNumber = getRandomNumber(100)
-console.log(randomNumber);
 
 function handleButtonElement(ev) {
     ev.preventDefault()
@@ -22,7 +21,6 @@ function handleButtonElement(ev) {
 
 function updateFeedback() {
     const inputValue = parseInt(inputElement.value);
-    console.log(inputValue);
     if (inputValue === randomNumber) {
         cluesElement.innerHTML = "Has ganado campeona!!!";
     }
@@ -47,10 +45,10 @@ function updateFeedback() {
 }
 
 const updateCounter = () => {
-    const counterMessage = document.querySelector('.js-counter');
-    let value = parseInt(counterMessage.innerHTML);
+    const counterNumber = document.querySelector('.js-counter');
+    let value = parseInt(counterNumber.innerHTML);
     value++;   
-    counterMessage.innerHTML = value;
+    counterNumber.innerHTML = value;
 }
 
 buttonElement.addEventListener('click', handleButtonElement);
