@@ -1,0 +1,12 @@
+Construyo la estructura del HTML (index.html)
+Les doy estilos con CSS (./styles/mains.css), linkando la hojas de estilos al html.
+Creo archivo JS (./js/main.js) 7 añado el elemento script en el html.
+Traigo los elementos del html que utilzaré y los convierto en constantes globales (cqs): js-input + js-button + js-clues + js-counter.
+Creo otra constante global con el nº aleatorio.
+Genero la "función madre" con un nombre (pero no la doto de contenido todavía).
+Creo el evento click en el botón.
+Construyo 2 "funciones hijas" para cada funcionalidad que necesito:
+ - Actualizar mensaje feeback (js-clues)
+ - Actualizar contador de intentos (js-counter)
+
+
