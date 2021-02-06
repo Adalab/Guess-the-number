@@ -36,20 +36,34 @@
   border: solid 1px white;
   background-color: thistle;
   margin-bottom: 10px;
+  padding-left: 5px;
 }
 
-.js-button {
+.js-button,
+.js-buttonR {
   background: rgb(187, 116, 187);
   border: solid 1px white;
   border-radius: 5px;
   width: 100px;
   color: aliceblue;
+  text-transform: uppercase;
+}
+
+.js-buttonR {
+  width: 200px;
+  background-color: rgb(110, 51, 110);
+  margin-top: 10px;
 }
 
 .js-clues,
-.message {
+.js-cluesUpDate,
+.js-message {
   border: solid 3px rgb(201, 197, 197);
   margin: 5px 0;
   padding: 3px 3px;
-  width: 350px;
+  width: 270px;
+}
+
+.dissapear {
+  display: none;
 }

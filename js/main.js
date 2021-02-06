@@ -1,56 +1,65 @@
 'use strict';
 
-/* Traigo los elementos del html que utilzaré y los convierto en constantes globales (cqs): js-input + js-button + js-clues + js-counter. */
-
+//Bring HTML elements
 const inputElement = document.querySelector('.js-input');
 const buttonElement = document.querySelector('.js-button');
 const cluesElement = document.querySelector('.js-clues');
+const messageElement = document.querySelector('.js-message');
 const counterElement = document.querySelector('.js-counter');
+const resetButtonElement = document.querySelector('.js-buttonR');
+ 
 
-const getRandomNumber = (max) => {
+//Get random number
+function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
 }
+const randomNumber = getRandomNumber(100);
 
-const randomNumber = getRandomNumber(100)
-
-function handleButtonElement(ev) {
-    ev.preventDefault()
+//Event click
+function handleButton(ev) {
+    ev.preventDefault();
     updateFeedback();
     updateCounter();
+
 }
 
+//Paint feedback message
 function updateFeedback() {
     const inputValue = parseInt(inputElement.value);
-    if (inputValue === randomNumber) {
-        cluesElement.innerHTML = "Has ganado campeona!!!";
+    let messageFeedback = "";
+    if (isNaN(inputValue)) {
+        messageFeedback = "prueba mejor con un número entre 1 y 100."
+    } else if (inputValue > 100 || inputValue < 1) {
+        messageFeedback = "el número debe estar entre 1 y 100."
+    } else if (inputValue < randomNumber) {
+        messageFeedback = "demasiado bajo."
+    } else if (inputValue > randomNumber) {
+        messageFeedback = "demasiado alto."
+    } else {
+        messageFeedback = "Has ganado campeona!!!";
+        resetButtonElement.disabled = true;
+        resetButtonElement.innerHTML = "¡ENHORABUENA!";
+        messageElement.innerHTML = "Refresca la página para jugar de nuevo"
+        counterElement.classList.add('dissapear');
     }
-    else if (inputValue < randomNumber) {
-        cluesElement.innerHTML = "Demasiado bajo."
-    }
-    else if (inputValue > randomNumber) {
-        cluesElement.innerHTML = "Demasiado alto."
-    }
-    else if (inputValue > 100){
-        cluesElement.innerHTML = "El número debe estar entre 1 y 100."
-    }
-    else if (inputValue < 100){
-        cluesElement.innerHTML = "El número debe estar entre 1 y 100."
-    }
-    else if (inputValue) {
-        cluesElement.innerHTML = "El número debe estar entre 1 y 100."
-    }
-    else {
-        cluesElement.innerHTML = "El número debe estar entre 1 y 100."
-    }
+    cluesElement.innerHTML = (`Pista: ${messageFeedback}`);
+    console.log(resetButtonElement.disabled)
 }
 
+//Paint number of counter
 const updateCounter = () => {
-    const counterNumber = document.querySelector('.js-counter');
-    let value = parseInt(counterNumber.innerHTML);
-    value++;   
-    counterNumber.innerHTML = value;
+    let counterNumber = parseInt(counterElement.innerHTML);
+    counterNumber++;
+    counterElement.innerHTML = counterNumber;
+
 }
 
-buttonElement.addEventListener('click', handleButtonElement);
+buttonElement.addEventListener('click', handleButton);
+
+function handleReset() {
+    cluesElement.innerHTML = "Pista: escribe el número y PRUEBA"
+}
 
 
+
+resetButtonElement.addEventListener('click', handleReset);
