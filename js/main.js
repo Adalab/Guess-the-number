@@ -37,8 +37,10 @@ function updateFeedback() {
         messageFeedback = "demasiado alto."
     } else {
         messageFeedback = "Has ganado campeona!!!";
+        resetButtonElement.value = "¡ENHORABUENA!";
+        resetButtonElement.style.backgroundColor = 'aquamarine';
         resetButtonElement.disabled = true;
-        resetButtonElement.innerHTML = "¡ENHORABUENA!";
+        messageElement.style.borderColor = 'aquamarine';
         messageElement.innerHTML = "Refresca la página para jugar de nuevo"
         counterElement.classList.add('dissapear');
     }
